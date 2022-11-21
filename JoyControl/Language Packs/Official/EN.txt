@@ -1,0 +1,15 @@
+v2.0-alpha
+
+JoyControl: Autopilot Disconnect
+JoyControl: Autopilot Disconnect
+
+JoyControl: Autothrottle Disconnect
+JoyControl: Autothrottle Disconnect
+
+JoyControl: Parking Brake Toggle
+JoyControl: Parking Brake Toggle
+
+JoyControl: Set TOGA Power
+JoyControl: Set TOGA Power
+
+JoyControl: Generate Debug Dump

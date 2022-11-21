@@ -1,0 +1,13 @@
+v2.0-alpha
+
+Rotate/aircraft/controls_c/ap_disc_l
+JoyControl: FlyJSim 737 TwinJet AP disconnect activated
+
+Rotate/aircraft/controls_c/ats_disc_l
+JoyControl: FlyJSim 737 TwinJet AT disconnect activated
+
+Rotate/aircraft/controls_c/park_brake_up
+JoyControl: FlyJSim 737 TwinJet parking brake toggle activated
+
+sim/engines/TOGA_power
+JoyControl: FlyJSim 737 TwinJet TOGA activated

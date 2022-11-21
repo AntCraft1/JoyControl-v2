@@ -1,0 +1,13 @@
+v2.0-alpha
+
+sim/autopilot/fdir_servos_down_one
+JoyControl: FlightFactor A350-900 AP disconnect activated
+
+sim/autopilot/autothrottle_off
+JoyControl: FlightFactor A350-900 AT disconnect activated
+
+sim/flight_controls/brakes_toggle_max
+JoyControl: FlightFactor A350-900 parking brake toggle activated
+
+sim/engines/TOGA_power
+JoyControl: FlightFactor A350-900 TOGA activated

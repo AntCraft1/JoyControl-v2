@@ -1,0 +1,13 @@
+v2.0-alpha
+
+Rotate/aircraft/controls_c/ap_disc_l
+JoyControl: Rotate MD-11 AP disconnect activated
+
+Rotate/aircraft/controls_c/ats_disc_l
+JoyControl: Rotate MD-11 AT disconnect activated
+
+Rotate/aircraft/controls_c/park_brake_up
+JoyControl: Rotate MD-11 parking brake toggle activated
+
+sim/engines/TOGA_power
+JoyControl: Rotate MD-11 TOGA activated

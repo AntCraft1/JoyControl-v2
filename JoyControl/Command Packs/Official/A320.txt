@@ -1,0 +1,13 @@
+v2.0-alpha
+
+MOKNY/FFA320/SideStickTakeoverL
+JoyControl: FlightFactor A320 AP disconnect activated
+
+sim/autopilot/autothrottle_off
+JoyControl: FlightFactor A320 AT disconnect activated
+
+sim/flight_controls/brakes_toggle_max
+JoyControl: FlightFactor A320 parking brake toggle activated
+
+sim/engines/TOGA_power
+JoyControl: FlightFactor A320 TOGA activated
