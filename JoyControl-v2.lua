@@ -32,7 +32,8 @@ function FileCheck(FILE_NAME)
 
 		FILE_NAME:read("*line") --Skips blank line after the file version line
 
-	elseif not FILE_NAME then
+	elseif FILE_NAME~=nil then
+		io.close(FILE_NAME)
 		FILE_EXISTS = false
 		logMsg("JoyControl: File " .. FILE_NAME .. " not found.")
 	end
@@ -64,9 +65,17 @@ function DebugDump()
 	logMsg("Joy Control Version: " .. VER_NUM) --Sends message to log stating the version number of JoyControl that is running
 	logMsg("") --Sends message to log leaving a blank line
 	logMsg("Plane ICAO Code: " .. PL_ICAO) --Sends message to log stating the ICAO code of the current plane being flown
-	logMsg("Plane Tail Number: " .. PL_TLNM) --Sends message to log stating the rail number of the current plane being flown
+	logMsg("Plane Tail Number: " .. PL_TLNM) --Sends message to log stating the tail number of the current plane being flown
+	logMsg("") --Sends message to log leaving a blank line
+	logMsg("Plane Author: " .. PL_AUTH) --Sends message to log stating the author of the plane add-on
 	logMsg("Aircraft File Path: " .. AC_PATH) --Sends message to log stating the file path of the current plane being flown
 	logMsg("Aircraft File Name: " .. AC_FLNM) --Sends message to log stating the file name of the current plane being flown
+	logMsg("") --Sends message to log leaving a blank line
+	logMsg("Currently loaded datarefs:") --Sends message to log stating that everything underneath is the currently loaded datarefs
+	logMsg(AP_DISC_CMD) --Sends message to log stating the currently loaded autopilot disconnect dataref
+	logMsg(AT_DISC_CMD) --Sends message to log stating the currently loaded autothrottle disconnect dataref
+	logMsg(PARK_BRAKE_CMD) --Sends message to log stating the currently loaded parking brake dataref
+	logMsg(TOGA_CMD) --Sends message to log stating the currently loaded toga dataref
 	logMsg("JoyControl: ~DEBUG DUMP END~") --Sends message to log marking the end of the debug dump
 
 	DebugLogger("JoyControl: Debug dumper finished") --Debug message to say when the debug dumper has finished
@@ -136,7 +145,7 @@ end
 --Config file loader function
 function CfgLoader()
 	--Sets variable to read the config file when called
-	local CFG_FILE = assert(io.open(SCR_DIR .. "JoyControl/JoyControl.cfg", "r"))
+	local CFG_FILE = io.open(SCR_DIR .. "JoyControl/JoyControl.cfg", "r")
 
 	--Checks integrity of the config file
 	FileCheck(CFG_FILE)
@@ -152,6 +161,7 @@ function CfgLoader()
 
 	DEBUG_MODE = string.sub(CFG_FILE:read("*line"),21)
 	FWL_MACRO = string.sub(CFG_FILE:read("*line"),21)
+	AUTO_DUMP = string.sub(CFG_FILE:read("*line"),26)
 end
 
 --Function to load command packs
@@ -160,12 +170,12 @@ function CommandPackLoader()
 
 	local DEFAULT_CMD = false --Initialises the local variables for the function
 
-	CMD_PACK = assert(io.open(SCR_DIR .. "JoyControl/Command Packs/Official/" .. PL_ICAO .. ".txt", "r")) --Sets variable to load a command pack from the official folder
+	CMD_PACK = io.open(SCR_DIR .. "JoyControl/Command Packs/Official/" .. PL_ICAO .. ".txt", "r") --Sets variable to load a command pack from the official folder
 
 	FileCheck(CMD_PACK) --Runs a file check on that command pack
 
 	if FILE_INTEG == 0 then --If file doesn't exist
-		local CMD_PACK = assert(io.open(SCR_DIR .. "JoyControl/Command Packs/Community/" .. PL_ICAO .. ".txt", "r")) --Sets variable to load a command pack from the community folder
+		local CMD_PACK = io.open(SCR_DIR .. "JoyControl/Command Packs/Community/" .. PL_ICAO .. ".txt", "r") --Sets variable to load a command pack from the community folder
 
 		FileCheck(CMD_PACK) --Runs a file check on that command pack
 
@@ -199,7 +209,7 @@ function LanguagePackLoader()
 	local DEFAULT_LANG = false --Initialises the local variables for the function
 
 	if LANG_CFG == XP then --If langiage setting in the config is set to the XP setting
-		LANG_PACK = assert(io.open(SCR_DIR .. "JoyControl/Language Packs/Official/" .. XP_LANG .. ".txt", "r")) --Sets the variable to load an official language pack based on what the language is within XP
+		LANG_PACK = io.open(SCR_DIR .. "JoyControl/Language Packs/Official/" .. XP_LANG .. ".txt", "r") --Sets the variable to load an official language pack based on what the language is within XP
 
 		FileCheck(LANG_PACK) --Runs a file check on the language pack
 
@@ -212,12 +222,12 @@ function LanguagePackLoader()
 			end
 		end
 	else --If language setting in the config is set to something else
-		LANG_PACK = assert(io.open(SCR_DIR .. "JoyControl/Language Packs/Official/" .. LANG_CFG .. ".txt", "r")) --Sets the variable to load lanuage pack from the official folder
+		LANG_PACK = io.open(SCR_DIR .. "JoyControl/Language Packs/Official/" .. LANG_CFG .. ".txt", "r") --Sets the variable to load lanuage pack from the official folder
 		
 		FileCheck(LANG_PACK) --Runs a file check on the language pack
 
 		if FILE_INTEG == 0 then --If the language pack doesn't exist
-			local LANG_PACK = assert(io.open(SCR_DIR .. "JoyControl/Language Packs/Community/" .. LANG_CFG .. ".txt", "r")) --Sets the variable to load lanuage pack from the community folder
+			local LANG_PACK = io.open(SCR_DIR .. "JoyControl/Language Packs/Community/" .. LANG_CFG .. ".txt", "r") --Sets the variable to load lanuage pack from the community folder
 
 			FileCheck(LANG_PACK) --Runs a file check on the language pack
 
@@ -254,6 +264,8 @@ function ExtractSimData()
 	SCR_DIR = SCRIPT_DIRECTORY --Detects the directory that the script is in
 
 	PL_ICAO = PLANE_ICAO --Detects the plane's icao code
+	PL_AUTH = PLANE_AUTHOR --Detects the author of the plane add-on
+
 	PL_TLNM = PLANE_TAILNUMBER --Detects the plane's tail number
 
 	AC_PATH = AIRCRAFT_PATH --Detects the path to the aircraft folder
@@ -263,7 +275,7 @@ function ExtractSimData()
 end
 
 --Function to handle the activation of commands
-function CommandHandler(CMD, STAGE)
+function CommandHandler(CMD, LOG, STAGE)
 	if STAGE == 0 then
 		command_begin(CMD)
 		--Pause(1)
@@ -281,6 +293,8 @@ function CommandHandler(CMD, STAGE)
 		--Pause(1)
 		command_once(CMD)
 	end
+	
+	DebugLogger(LOG .. ", Stage: " .. STAGE)
 end
 
 --Function containing the default set of XP11 commands
@@ -319,6 +333,10 @@ end
 
 ExtractSimData() --Extracts the data from X-Plane that is needed for JoyControl
 
+if AUTO_DUMP == true then
+	DebugDump()
+end
+
 CfgLoader() --Runs the config loader to load config settings
 DebugLogger("JoyControl: Config file loaded") --Debug message to show the config file has loaded
 
@@ -330,16 +348,16 @@ DebugLogger("JoyControl: Loaders finished") --Debug message to show the loaders 
 --Command Creation
 
 --Creates command for the autopilot disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD, 2)", "", "CommandHandler(AP_DISC_CMD, 3)")
+create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, 2)", "", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, 3)")
 
 --Creates command for the autothrottle disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, 2)", "", "CommandHandler(AT_DISC_CMD, 3)")
+create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 2)", "", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 3)")
 
 --Creates command for the park brake keybind
-create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, 2)", "", "CommandHandler(PARK_BRAKE_CMD, 3)")
+create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
 
 --Creates command for the toga keybind
-create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, 2)", "", "CommandHandler(TOGA_CMD, 3)")
+create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
 
 
 --Macro Creation
