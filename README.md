@@ -9,7 +9,7 @@ Supported Languages*:
 - Portuguese
 - Russian
 
-*All languages except English were translated in google translate and may not be 100% accurate
+ *All languages except English were translated in google translate and may not be 100% accurate
 
 Supported Add-Ons:
 - FlightFactor Airbus A320
