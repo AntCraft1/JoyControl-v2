@@ -6,7 +6,7 @@ JoyControl: Toliss A321 AP disconnect activated
 sim/autopilot/autothrottle_off
 JoyControl: Toliss A321 AT disconnect activated
 
-sim/flight_controls/brakes_toggle_max
+toliss_airbus/park_brake_toggle
 JoyControl: Toliss A321 parking brake toggle activated
 
 sim/engines/TOGA_power

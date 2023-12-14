@@ -75,7 +75,7 @@ function DebugDump()
 	logMsg(AP_DISC_CMD) --Sends message to log stating the currently loaded autopilot disconnect dataref
 	logMsg(AT_DISC_CMD) --Sends message to log stating the currently loaded autothrottle disconnect dataref
 	logMsg(PARK_BRAKE_CMD) --Sends message to log stating the currently loaded parking brake dataref
-	logMsg(TOGA_CMD) --Sends message to log stating the currently loaded toga dataref
+	logMsg(TOGA_CMD) --Sends message to log stating the currently loaded autopilot disconnect dataref
 	logMsg("JoyControl: ~DEBUG DUMP END~") --Sends message to log marking the end of the debug dump
 
 	DebugLogger("JoyControl: Debug dumper finished") --Debug message to say when the debug dumper has finished
@@ -353,8 +353,20 @@ create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "Comm
 --Creates command for the autothrottle disconnect keybind
 create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 2)", "", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 3)")
 
---Creates command for the park brake keybind
+--Creates command for the park brake toggle keybind
 create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
+
+--Creates command for the park brake on keybind
+--create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
+
+--Creates command for the park brake off keybind
+--create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
+
+--Creates command for the toga keybind
+create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+
+--Creates command for the seatbelt sign keybind
+create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
 
 --Creates command for the toga keybind
 create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
