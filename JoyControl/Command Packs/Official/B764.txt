@@ -1,13 +1,13 @@
 v2.0-alpha
 
 1-sim/comm/AP/ap_disc
-JoyControl: FlightFactor 767-300ER/F AP disconnect activated
+JoyControl: FlightFactor 767-400ER AP disconnect activated
 
 1-sim/comm/AP/at_disc
-JoyControl: FlightFactor 767-300ER/F AT disconnect activated
+JoyControl: FlightFactor 767-400ER AT disconnect activated
 
 sim/flight_controls/brakes_toggle_max
-JoyControl: FlightFactor 767-300ER/F parking brake toggle activated
+JoyControl: FlightFactor 767-400ER parking brake toggle activated
 
 1-sim/comm/AP/at_toga
-JoyControl: FlightFactor 767-300ER/F TOGA activated
+JoyControl: FlightFactor 767-400ER TOGA activated
