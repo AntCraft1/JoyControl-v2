@@ -1,13 +1,13 @@
 v2.0-alpha
 
 toliss_airbus/ap_disc_left_stick
-JoyControl: Toliss A321 AP disconnect activated
+JoyControl: Toliss A321 NEO AP disconnect activated
 
 sim/autopilot/autothrottle_off
-JoyControl: Toliss A321 AT disconnect activated
+JoyControl: Toliss A321 NEO AT disconnect activated
 
 toliss_airbus/park_brake_toggle
-JoyControl: Toliss A321 parking brake toggle activated
+JoyControl: Toliss A321 NEO parking brake toggle activated
 
 sim/engines/TOGA_power
-JoyControl: Toliss A321 TOGA activated
+JoyControl: Toliss A321 NEO TOGA activated

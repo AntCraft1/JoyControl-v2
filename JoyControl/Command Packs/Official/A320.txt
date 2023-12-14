@@ -1,6 +1,6 @@
 v2.0-alpha
 
-MOKNY/FFA320/SideStickTakeoverL
+a320/Panel/SidestickTakeoverL_button
 JoyControl: FlightFactor A320 AP disconnect activated
 
 sim/autopilot/autothrottle_off
