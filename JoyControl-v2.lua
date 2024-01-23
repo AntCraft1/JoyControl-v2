@@ -1,5 +1,9 @@
 --JoyControl version number
-VER_NUM = "v2.2-alpha"
+VER_NUM = "v2.3-alpha"
+
+--Pre Set Variables
+
+CYCLE_STATE = "A"
 
 -- FUNCTIONS --
 
@@ -97,26 +101,34 @@ end
 function CommandPackReader()
 	DebugLogger("JoyControl: Command pack reader started") --Debug message to show when the command pack reader has started
 
+	AP_DISC_CMD_CYCLE = CMD_PACK:read("*line") --Reads whether the command should use the Command Cycler function or not
 	AP_DISC_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
-	AP_DISC_CMD = CMD_PACK:read("*line") --Reads command for AP disconnect and saves it to a variable
+	AP_DISC_CMD_A = CMD_PACK:read("*line") --Reads the first command for AP disconnect and saves it to a variable
+	AP_DISC_CMD_A = CMD_PACK:read("*line") --Reads the second command for AP disconnect and saves it to a variable
 	AP_DISC_LOG = CMD_PACK:read("*line") --Reads log message for AP disconnect and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	AT_DISC_CMD_CYCLE = CMD_PACK:read("*line") --Reads whether the command should use the Command Cycler function or not
 	AT_DISC_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
-	AT_DISC_CMD = CMD_PACK:read("*line") --Reads command for AT disconnect and saves it to a variable
+	AT_DISC_CMD_A = CMD_PACK:read("*line") --Reads the first command for AT disconnect and saves it to a variable
+	AT_DISC_CMD_B = CMD_PACK:read("*line") --Reads the second command for AT disconnect and saves it to a variable
 	AT_DISC_LOG = CMD_PACK:read("*line") --Reads log message for AT disconnect and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	PARK_BRAKE_CMD_CYCLE = CMD_PACK:read("*line") --Reads whether the command should use the Command Cycler function or not
 	PARK_BRAKE_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
-	PARK_BRAKE_CMD = CMD_PACK:read("*line") --Reads command for parking brake and saves it to a variable
+	PARK_BRAKE_CMD_A = CMD_PACK:read("*line") --Reads the first command for parking brake and saves it to a variable
+	PARK_BRAKE_CMD_B = CMD_PACK:read("*line") --Reads the second command for parking brake and saves it to a variable
 	PARK_BRAKE_LOG = CMD_PACK:read("*line") --Reads log message for parking brake and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	TOGA_CMD_CYCLE = CMD_PACK:read("*line") --Reads whether the command should use the Command Cycler function or not
 	TOGA_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
-	TOGA_CMD = CMD_PACK:read("*line") --Reads command for TOGA button and saves it to a variable
+	TOGA_CMD_A = CMD_PACK:read("*line") --Reads the first command for TOGA button and saves it to a variable
+	TOGA_CMD_B = CMD_PACK:read("*line") --Reads the second command for TOGA button and saves it to a variable
 	TOGA_LOG = CMD_PACK:read("*line") --Reads log message for parking brake and saves it to a variable
 
 	DebugLogger("JoyControl: Command pack reader finished") --Debug message to show when the command pack reader has finished
@@ -289,8 +301,27 @@ function ExtractSimData()
 	DebugLogger("JoyControl: Sim data extractor finished") --Debug message to show the sim data extractor has finished
 end
 
+--Function to cycle commands to ensure command is toggleable
+function CommandCycler(CMD_A, CMD_B, LOG, CMD_MODE, STAGE)
+	DebugLogger("Command Cycler running. Cycle State: " .. CYCLE_STATE)
+
+	if CYCLE_STATE == "A" then
+		CommandExecuter(CMD_A, LOG, CMD_MODE, STAGE)
+		
+		CYCLE_STATE = "B"
+
+	elseif CYCLE_STATE == "B" then
+		CommandExecuter(CMD_B, LOG, CMD_MODE, STAGE)
+
+		CYCLE_STATE = "A" 
+
+	end
+
+	DebugLogger("Command Cycler complete. New Cycle State: " .. CYCLE_STATE)
+end
+
 --Function to handle the activation of commands
-function CommandHandler(CMD, LOG, CMD_MODE, STAGE)
+function CommandExecuter(CMD, LOG, CMD_MODE, STAGE)
 	if CMD_MODE == "START" then
 		ENABLE_STAGE_1 = true
 		ENABLE_STAGE_2 = false
@@ -323,6 +354,23 @@ function CommandHandler(CMD, LOG, CMD_MODE, STAGE)
 		command_end(CMD)
 
 		DebugLogger(LOG .. ", Stage: " .. STAGE .. ", " .. CMD_MODE)
+
+	end
+end
+
+--Function to decide if a scipt needs to use the command cycler or not
+function CommandHandler(CYCLER, CMD_A, CMD_B, LOG, CMD_MODE, STAGE)
+	DebugLogger("Command Handler started.")
+
+	if CYCLER == "true" then
+		CommandCycler(CMD_A, CMD_B, LOG, CMD_MODE, STAGE)
+
+		DebugLogger("Command Handler complete. Choice: Cycler required.")
+
+	elseif CYCLER == "false" then
+		CommandExecuter(CMD_A, LOG, CMD_MODE, STAGE)
+
+		DebugLogger("Command Handler complete. Choice: Cycler not required.")
 
 	end
 end
@@ -419,13 +467,13 @@ DebugLogger("JoyControl: Loaders finished") --Debug message to show the loaders 
 --Command Creation
 
 --Creates command for the autopilot disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 1)", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 2)", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 3)")
+create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD_CYCLE, AP_DISC_CMD_A, AP_DISC_CMD_B, AP_DISC_LOG, AP_DISC_CMD_MODE, 1)", "CommandHandler(AP_DISC_CMD_CYCLE, AP_DISC_CMD_A, AP_DISC_CMD_B, AP_DISC_LOG, AP_DISC_CMD_MODE, 2)", "CommandHandler(AP_DISC_CMD_CYCLE, AP_DISC_CMD_A, AP_DISC_CMD_B, AP_DISC_LOG, AP_DISC_CMD_MODE, 3)")
 
 --Creates command for the autothrottle disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 1)", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 2)", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 3)")
+create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD_CYCLE, AT_DISC_CMD_A, AT_DISC_CMD_B, AT_DISC_LOG, AT_DISC_CMD_MODE, 1)", "CommandHandler(AT_DISC_CMD_CYCLE, AT_DISC_CMD_A, AT_DISC_CMD_B, AT_DISC_LOG, AT_DISC_CMD_MODE, 2)", "CommandHandler(AT_DISC_CMD_CYCLE, AT_DISC_CMD_A, AT_DISC_CMD_B, AT_DISC_LOG, AT_DISC_CMD_MODE, 3)")
 
 --Creates command for the park brake toggle keybind
-create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 1)", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 2)", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 3)")
+create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD_CYCLE, PARK_BRAKE_CMD_A, PARK_BRAKE_CMD_B, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 1)", "CommandHandler(PARK_BRAKE_CMD_CYCLE, PARK_BRAKE_CMD_A, PARK_BRAKE_CMD_B, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 2)", "CommandHandler(PARK_BRAKE_CMD_CYCLE, PARK_BRAKE_CMD_A, PARK_BRAKE_CMD_B, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 3)")
 
 --Creates command for the park brake on keybind
 --create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
@@ -434,7 +482,7 @@ create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "Comm
 --create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
 
 --Creates command for the toga keybind
-create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 1)", "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 2)", "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 3)")
+create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD_CYCLE, TOGA_CMD_A, TOGA_CMD_B, TOGA_LOG, TOGA_CMD_MODE, 1)", "CommandHandler(TOGA_CMD_CYCLE, TOGA_CMD_A, TOGA_CMD_B, TOGA_LOG, TOGA_CMD_MODE, 2)", "CommandHandler(TOGA_CMD_CYCLE, TOGA_CMD_A, TOGA_CMD_B, TOGA_LOG, TOGA_CMD_MODE, 3)")
 
 --Creates command for the seatbelt sign on keybind
 --create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
