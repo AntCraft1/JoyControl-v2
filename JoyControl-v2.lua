@@ -166,6 +166,10 @@ function CfgLoader()
 
 	LANG_CFG = string.sub(CFG_FILE:read("*line"),23)
 
+	if LANG_CFG == XP then
+		XPLanguageHandler()
+	end
+
 	CFG_FILE:read("*line")
 
 	DEBUG_MODE = string.sub(CFG_FILE:read("*line"),21)

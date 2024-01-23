@@ -1,17 +1,17 @@
 v2.2-alpha
 
-ONCE
+START
 1-sim/comm/AP/ap_disc
 JoyControl: FlightFactor 757-200/F AP disconnect activated
 
-ONCE
+START
 1-sim/comm/AP/at_disc
 JoyControl: FlightFactor 757-200/F AT disconnect activated
 
-ONCE
+START
 sim/flight_controls/brakes_toggle_max
 JoyControl: FlightFactor 757-200/F parking brake toggle activated
 
-ONCE
+START
 1-sim/comm/AP/at_toga
 JoyControl: FlightFactor 757-200/F TOGA activated
