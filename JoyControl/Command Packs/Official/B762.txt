@@ -1,13 +1,17 @@
-v2.0-alpha
+v2.2-alpha
 
+ONCE
 1-sim/comm/AP/ap_disc
 JoyControl: FlightFactor 767-200ER/SF AP disconnect activated
 
+ONCE
 1-sim/comm/AP/at_disc
 JoyControl: FlightFactor 767-200ER/SF AT disconnect activated
 
+ONCE
 sim/flight_controls/brakes_toggle_max
 JoyControl: FlightFactor 767-200ER/SF parking brake toggle activated
 
+ONCE
 1-sim/comm/AP/at_toga
 JoyControl: FlightFactor 767-200ER/SF TOGA activated

@@ -1,13 +1,17 @@
-v2.0-alpha
+v2.2-alpha
 
+ONCE
 laminar/B738/autopilot/disconnect_toggle
 JoyControl: Laminar/Zibo/LevelUp Boeing 737-800 AP disconnect activated
 
+ONCE
 laminar/B738/autopilot/autothrottle_arm_toggle
 JoyControl: Laminar/Zibo/LevelUp Boeing 737-800 AT disconnect activated
 
+ONCE
 sim/flight_controls/brakes_toggle_max
 JoyControl: Laminar/Zibo/LevelUp Boeing 737-800 parking brake toggle activated
 
+ONCE
 laminar/B738/autopilot/left_toga_press
 JoyControl: Laminar/Zibo/LevelUp Boeing 737-800 TOGA activated

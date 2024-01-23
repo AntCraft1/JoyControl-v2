@@ -1,5 +1,5 @@
 --JoyControl version number
-VER_NUM = "v2.0-alpha"
+VER_NUM = "v2.2-alpha"
 
 -- FUNCTIONS --
 
@@ -7,6 +7,11 @@ VER_NUM = "v2.0-alpha"
 function Pause(TIME)
   os.execute("sleep " .. tonumber(TIME)) --Tells OS to pause with time being in seconds
 end
+
+--Convert value to string function
+--function ValueToString(VALUE)
+--	local STRING = tostring(VALUE)
+
 
 --File detection function
 function FileCheck(FILE_NAME)
@@ -27,7 +32,7 @@ function FileCheck(FILE_NAME)
 			CORRECT_FILE_VER = true
 		else
 			CORRECT_FILE_VER = false
-			logMsg("JoyControl: File " .. FILE_NAME .. " may require an update. Not updating may cause problems. (JoyControl version: " .. VER_NUM .. ", file version: " .. FILE_VER .. ".")
+			logMsg("JoyControl: File " .. tostring(FILE_NAME) .. " may require an update. Not updating may cause problems. (JoyControl version: " .. VER_NUM .. ", file version: " .. FILE_VER .. ".)")
 		end
 
 		FILE_NAME:read("*line") --Skips blank line after the file version line
@@ -92,21 +97,25 @@ end
 function CommandPackReader()
 	DebugLogger("JoyControl: Command pack reader started") --Debug message to show when the command pack reader has started
 
+	AP_DISC_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
 	AP_DISC_CMD = CMD_PACK:read("*line") --Reads command for AP disconnect and saves it to a variable
 	AP_DISC_LOG = CMD_PACK:read("*line") --Reads log message for AP disconnect and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	AT_DISC_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
 	AT_DISC_CMD = CMD_PACK:read("*line") --Reads command for AT disconnect and saves it to a variable
 	AT_DISC_LOG = CMD_PACK:read("*line") --Reads log message for AT disconnect and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	PARK_BRAKE_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
 	PARK_BRAKE_CMD = CMD_PACK:read("*line") --Reads command for parking brake and saves it to a variable
 	PARK_BRAKE_LOG = CMD_PACK:read("*line") --Reads log message for parking brake and saves it to a variable
 
 	CMD_PACK:read("*line") --Skips line
 
+	TOGA_CMD_MODE = CMD_PACK:read("*line") --Reads the command handler mode for AP disconnect and saves it to a variable
 	TOGA_CMD = CMD_PACK:read("*line") --Reads command for TOGA button and saves it to a variable
 	TOGA_LOG = CMD_PACK:read("*line") --Reads log message for parking brake and saves it to a variable
 
@@ -208,6 +217,8 @@ function LanguagePackLoader()
 
 	local DEFAULT_LANG = false --Initialises the local variables for the function
 
+	XPLanguageHandler()
+
 	if LANG_CFG == XP then --If langiage setting in the config is set to the XP setting
 		LANG_PACK = io.open(SCR_DIR .. "JoyControl/Language Packs/Official/" .. XP_LANG .. ".txt", "r") --Sets the variable to load an official language pack based on what the language is within XP
 
@@ -275,26 +286,82 @@ function ExtractSimData()
 end
 
 --Function to handle the activation of commands
-function CommandHandler(CMD, LOG, STAGE)
-	if STAGE == 0 then
-		command_begin(CMD)
-		--Pause(1)
-		command_once(CMD)
-		--Pause(1)
-		command_end(CMD)
-	elseif STAGE == 1 then
-		command_begin(CMD)
-	elseif STAGE == 2 then
-		command_once(CMD)
-	elseif STAGE == 3 then
-		command_end(CMD)
-	elseif STAGE == 4 then
-		command_begin(CMD)
-		--Pause(1)
-		command_once(CMD)
+function CommandHandler(CMD, LOG, CMD_MODE, STAGE)
+	if CMD_MODE == "START" then
+		ENABLE_STAGE_1 = true
+		ENABLE_STAGE_2 = false
+		ENABLE_STAGE_3 = false
+	elseif CMD_MODE == "ONCE" then
+		ENABLE_STAGE_1 = false
+		ENABLE_STAGE_2 = true
+		ENABLE_STAGE_3 = false
+	elseif CMD_MODE == "END" then
+		ENABLE_STAGE_1 = false
+		ENABLE_STAGE_2 = false
+		ENABLE_STAGE_3 = true
+	elseif CMD_MODE == "START_END" then
+		ENABLE_STAGE_1 = true
+		ENABLE_STAGE_2 = false
+		ENABLE_STAGE_3 = true
 	end
 	
-	DebugLogger(LOG .. ", Stage: " .. STAGE)
+	if STAGE == 1 and ENABLE_STAGE_1 == true then
+		command_begin(CMD)
+
+		DebugLogger(LOG .. ", Stage: " .. STAGE .. ", " .. CMD_MODE)
+
+	elseif STAGE == 2 and ENABLE_STAGE_2 == true then
+		command_once(CMD)
+
+		DebugLogger(LOG .. ", Stage: " .. STAGE .. ", " .. CMD_MODE)
+
+	elseif STAGE == 3 and ENABLE_STAGE_3 == true then
+		command_end(CMD)
+
+		DebugLogger(LOG .. ", Stage: " .. STAGE .. ", " .. CMD_MODE)
+
+	end
+end
+
+function XPLanguageHandler()
+	if XPLANE_LANGUAGE == "English" then
+		XP_LANG = EN
+
+	elseif XPLANE_LANGUAGE == "French" then
+		XP_LANG = FR
+
+	elseif XPLANE_LANGUAGE == "German" then
+		XP_LANG = DE
+
+	elseif XPLANE_LANGUAGE == "Italian" then
+		XP_LANG = IT
+
+	elseif XPLANE_LANGUAGE == "Spanish" then
+		XP_LANG = ES
+
+	elseif XPLANE_LANGUAGE == "Portuguese" then
+		XP_LANG = PT
+
+	elseif XPLANE_LANGUAGE == "Japanese" then
+		XP_LANG = JA
+
+	elseif XPLANE_LANGUAGE == "Chinese" then
+		XP_LANG = ZH
+
+	elseif XPLANE_LANGUAGE == "Korean" then
+		XP_LANG = KO
+
+	elseif XPLANE_LANGUAGE == "Russian" then
+		XP_LANG = RU
+
+	elseif XPLANE_LANGUAGE == "Greek" then
+		XP_LANG = EL
+
+	end
+
+	--elseif XPLANE_LANGUAGE == "Unknown" then
+
+	--else
 end
 
 --Function containing the default set of XP11 commands
@@ -348,13 +415,13 @@ DebugLogger("JoyControl: Loaders finished") --Debug message to show the loaders 
 --Command Creation
 
 --Creates command for the autopilot disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, 2)", "", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, 3)")
+create_command("FlyWithLua/JoyControl-v2/AP_Disconnect", AP_DISC_CMD_NAME, "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 1)", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 2)", "CommandHandler(AP_DISC_CMD, AP_DISC_LOG, AP_DISC_CMD_MODE, 3)")
 
 --Creates command for the autothrottle disconnect keybind
-create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 2)", "", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, 3)")
+create_command("FlyWithLua/JoyControl-v2/AT_Disconnect", AT_DISC_CMD_NAME, "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 1)", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 2)", "CommandHandler(AT_DISC_CMD, AT_DISC_LOG, AT_DISC_CMD_MODE, 3)")
 
 --Creates command for the park brake toggle keybind
-create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
+create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 1)", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 2)", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, PARK_BRAKE_CMD_MODE, 3)")
 
 --Creates command for the park brake on keybind
 --create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
@@ -363,13 +430,19 @@ create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "Comm
 --create_command("FlyWithLua/JoyControl-v2/Park_Brake", PARK_BRAKE_CMD_NAME, "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 2)", "", "CommandHandler(PARK_BRAKE_CMD, PARK_BRAKE_LOG, 3)")
 
 --Creates command for the toga keybind
-create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 1)", "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 2)", "CommandHandler(TOGA_CMD, TOGA_LOG, TOGA_CMD_MODE, 3)")
 
---Creates command for the seatbelt sign keybind
-create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+--Creates command for the seatbelt sign on keybind
+--create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
 
---Creates command for the toga keybind
-create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+--Creates command for the seatbelt sign off keybind
+--create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+
+--Creates command for the no smoking sign on keybind
+--create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
+
+--Creates command for the no smoking sign off keybind
+--create_command("FlyWithLua/JoyControl-v2/TOGA", TOGA_CMD_NAME, "CommandHandler(TOGA_CMD, TOGA_LOG, 2)", "", "CommandHandler(TOGA_CMD, TOGA_LOG, 3)")
 
 
 --Macro Creation

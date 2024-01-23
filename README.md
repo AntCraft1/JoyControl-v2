@@ -1,13 +1,15 @@
 # JoyControl-v2
 
+Current Version: v2.2-alpha
+
 Supported Languages*:
 - English
-- French
-- German
-- Spanish
-- Italian
-- Portuguese
-- Russian
+- French - WIP
+- German - WIP
+- Spanish - WIP
+- Italian - WIP
+- Portuguese - WIP
+- Russian - WIP
 
  *All languages except English were translated in google translate and may not be 100% accurate
 
@@ -19,5 +21,5 @@ Supported Add-Ons:
 - Zibo Boeing 737
 - FlightFactor Boeing 757
 - FlightFactor Boeing 767
-- Rotate McDonnell Douglas MD-11
+- Rotate McDonnell Douglas MD-11 - WIP
 - Rotate McDonnell Douglas MD-80

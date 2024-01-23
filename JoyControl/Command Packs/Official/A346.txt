@@ -1,13 +1,17 @@
-v2.0-alpha
+v2.2-alpha
 
+ONCE
 toliss_airbus/ap_disc_left_stick
 JoyControl: Toliss A340-600 AP disconnect activated
 
+ONCE
 sim/autopilot/autothrottle_off
 JoyControl: Toliss A340-600 AT disconnect activated
 
+ONCE
 toliss_airbus/park_brake_toggle
 JoyControl: Toliss A340-600 parking brake toggle activated
 
+ONCE
 sim/engines/TOGA_power
 JoyControl: Toliss A340-600 TOGA activated
