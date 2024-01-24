@@ -1,17 +1,21 @@
-v2.2-alpha
+v2.3-alpha
 
+false
 ONCE
 toliss_airbus/ap_disc_left_stick
 JoyControl: Toliss A319 AP disconnect activated
 
+false
 ONCE
 sim/autopilot/autothrottle_off
 JoyControl: Toliss A319 AT disconnect activated
 
+false
 ONCE
 toliss_airbus/park_brake_toggle
 JoyControl: Toliss A319 parking brake toggle activated
 
+false
 ONCE
 sim/engines/TOGA_power
 JoyControl: Toliss A319 TOGA activated

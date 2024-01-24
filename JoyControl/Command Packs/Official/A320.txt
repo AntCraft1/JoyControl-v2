@@ -1,17 +1,21 @@
-v2.2-alpha
+v2.3-alpha
 
+false
 ONCE
 a320/Panel/SidestickTakeoverL_button
 JoyControl: FlightFactor A320 AP disconnect activated
 
+false
 ONCE
 sim/autopilot/autothrottle_off
 JoyControl: FlightFactor A320 AT disconnect activated
 
+false
 ONCE
 sim/flight_controls/brakes_toggle_max
 JoyControl: FlightFactor A320 parking brake toggle activated
 
+false
 ONCE
 sim/engines/TOGA_power
 JoyControl: FlightFactor A320 TOGA activated

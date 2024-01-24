@@ -1,17 +1,21 @@
-v2.2-alpha
+v2.3-alpha
 
+false
 START
 1-sim/comm/AP/ap_disc
 JoyControl: FlightFactor 767-300ER/F AP disconnect activated
 
+false
 START
 1-sim/comm/AP/at_disc
 JoyControl: FlightFactor 767-300ER/F AT disconnect activated
 
+false
 START
 sim/flight_controls/brakes_toggle_max
 JoyControl: FlightFactor 767-300ER/F parking brake toggle activated
 
+false
 START
 1-sim/comm/AP/at_toga
 JoyControl: FlightFactor 767-300ER/F TOGA activated

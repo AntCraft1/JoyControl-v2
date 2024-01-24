@@ -1,17 +1,21 @@
-v2.2-alpha
+v2.3-alpha
 
+false
 ONCE
 Rotate/md80/autopilot/ap_disc
 JoyControl: Rotate MD80 AP disconnect activated
 
+false
 ONCE
 Rotate/md80/autopilot/at_disc
 JoyControl: Rotate MD80 AT disconnect activated
 
+false
 ONCE
 sim/flight_controls/brakes_toggle_max
 JoyControl: Rotate MD80 parking brake toggle activated
 
+false
 ONCE
 Rotate/md80/systems/parking_brake_toggle
 JoyControl: Rotate MD80 TOGA activated

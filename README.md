@@ -1,6 +1,6 @@
 # JoyControl-v2
 
-Current Version: v2.2-alpha
+Current Version: v2.3-alpha
 
 Supported Languages*:
 - English
