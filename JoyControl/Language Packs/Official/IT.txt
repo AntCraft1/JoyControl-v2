@@ -1,0 +1,15 @@
+v2.2-alpha
+
+JoyControl: disconnessione del Pilota Automatico
+JoyControl: disconnessione del Pilota Automatico
+
+JoyControl: Disconnessione dell'Acceleratore Automatico
+JoyControl: Disconnessione dell'Acceleratore Automatico
+
+JoyControl: Attivazione/disattivazione del freno di stazionamento
+JoyControl: Attivazione/disattivazione del freno di stazionamento
+
+JoyControl: Imposta L'alimentazione TOGA
+JoyControl: Imposta L'alimentazione TOGA
+
+JoyControl: Genera Dump di Debug

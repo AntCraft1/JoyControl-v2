@@ -1,0 +1,15 @@
+v2.2-alpha
+
+JoyControl: Desconexión del Piloto Automático
+JoyControl: Desconexión del Piloto Automático
+
+JoyControl: Desconexión del Acelerador Automático
+JoyControl: Desconexión del Acelerador Automático
+
+JoyControl: palanca del Freno de Estacionamiento
+JoyControl: palanca del Freno de Estacionamiento
+
+JoyControl: Establecer Potencia TOGA
+JoyControl: Establecer Potencia TOGA
+
+JoyControl: Generar Volcado de Depuración

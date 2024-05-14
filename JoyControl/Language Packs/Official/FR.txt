@@ -1,0 +1,15 @@
+v2.2-alpha
+
+JoyControl : Déconnexion du Pilote Automatique
+JoyControl : Déconnexion du Pilote Automatique
+
+JoyControl : Déconnexion de L'automanette
+JoyControl : Déconnexion de L'automanette
+
+JoyControl : Bascule du Frein de Stationnement
+JoyControl : Bascule du Frein de Stationnement
+
+JoyControl : Définir la Puissance de TOGA
+JoyControl : Définir la Puissance de TOGA
+
+JoyControl : Générer un Vidage de Débogage

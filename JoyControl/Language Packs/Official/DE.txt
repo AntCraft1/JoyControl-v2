@@ -1,0 +1,15 @@
+v2.2-alpha
+
+JoyControl: Autopilot-Verbindung Trennen
+JoyControl: Autopilot-Verbindung Trennen
+
+JoyControl: Autothrottle-Trennung
+JoyControl: Autothrottle-Trennung
+
+JoyControl: Feststellbremsenschalter
+JoyControl: Feststellbremsenschalter
+
+JoyControl: TOGA-Leistung Einstellen
+JoyControl: TOGA-Leistung Einstellen
+
+JoyControl: Debug-Dump Generieren

@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\RU.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\RU.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\PT.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\PT.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\IT.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\IT.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\FR.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\FR.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\ES.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\ES.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\EN.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\EN.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\DE.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Language Packs\\Official\\DE.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl-v2.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl-v2.lua||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\JoyControl.cfg||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\JoyControl.cfg||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Command Packs\\Official\\MD11.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JoyControl\\Command Packs\\Official\\MD11.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PT.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\PT.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\PT.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\PT.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\PT.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:39:09.809Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IT.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\IT.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\IT.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\IT.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\IT.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:37:50.43Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ES.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\ES.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\ES.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\ES.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\ES.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:34:48.03Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DE.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\DE.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\DE.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\DE.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\DE.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:32:51.309Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FR.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\FR.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\FR.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\FR.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\FR.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:32:06.171Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MD11.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Command Packs\\Official\\MD11.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Command Packs\\Official\\MD11.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Command Packs\\Official\\MD11.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Command Packs\\Official\\MD11.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:25:13.077Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EN.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\EN.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\EN.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\EN.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\EN.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:25:08.274Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RU.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\RU.txt",
+              "RelativeDocumentMoniker": "JoyControl\\Language Packs\\Official\\RU.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\Language Packs\\Official\\RU.txt [Read Only]",
+              "RelativeToolTip": "JoyControl\\Language Packs\\Official\\RU.txt [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-14T21:25:04.621Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JoyControl-v2.lua",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl-v2.lua",
+              "RelativeDocumentMoniker": "JoyControl-v2.lua",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl-v2.lua [Read Only]",
+              "RelativeToolTip": "JoyControl-v2.lua [Read Only]",
+              "ViewState": "AQIAAMsBAAAAAAAAAAAAAAECAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2023-04-15T23:23:09.92Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\README.md [Read Only]",
+              "RelativeToolTip": "README.md [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2023-07-14T07:22:12.007Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JoyControl.cfg",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\JoyControl.cfg",
+              "RelativeDocumentMoniker": "JoyControl\\JoyControl.cfg",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\AntCraft1\\JoyControl-v2\\JoyControl\\JoyControl.cfg [Read Only]",
+              "RelativeToolTip": "JoyControl\\JoyControl.cfg [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2023-07-15T09:34:25.231Z",
+              "EditorCaption": " [Read Only]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
