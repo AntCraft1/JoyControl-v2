@@ -1,8 +1,14 @@
 # JoyControl-v2
 
+## Installation and Set-up
+
+To install JoyControl, unzip the .zip file in your FlyWithLua scripts folder, located here: `[X-Plane 12 Root Folder]\Resources\plugins\FlyWithLua\Scripts`. Once that is done, you may then start X-Plane 12. Once you reach the main menu, go into settings, and then to your appropriate key-bind menu (Joystick or Keyboard). Then you may bind the included JoyControl functions to your desired keys.
+
+## Technical Information
+
 Current Version: v2.3-alpha
 
-Supported Languages*:
+### Supported Languages*:
 - English
 - French - WIP
 - German - WIP
@@ -11,9 +17,9 @@ Supported Languages*:
 - Portuguese - WIP
 - Russian - WIP
 
- *All languages except English were translated in google translate and may not be 100% accurate
+ *_All languages except English were translated in google translate and may not be 100% accurate_
 
-Supported Add-Ons:
+### Supported Add-Ons:
 - FlightFactor Airbus A320
 - Toliss Airbus A321
 - FlightFactor Airbus A350
