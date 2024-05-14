@@ -8,6 +8,8 @@ To install JoyControl, unzip the .zip file in your FlyWithLua scripts folder, lo
 
 Current Version: v2.3-alpha
 
+Currently supports X-Plane 12.0.8
+
 ### Supported Languages*:
 - English
 - French - WIP
