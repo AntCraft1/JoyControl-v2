@@ -31,3 +31,9 @@ Currently supports X-Plane 12.0.8
 - FlightFactor Boeing 767
 - Rotate McDonnell Douglas MD-11 - WIP
 - Rotate McDonnell Douglas MD-80
+
+### Supported Key-Binds:
+- Autopilot Disconnect
+- Autothrottle Disconnect
+- Parking Brake
+- TOGA
